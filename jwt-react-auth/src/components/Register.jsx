@@ -66,7 +66,7 @@ function Register() {
          <div className='container mt-4'>
             <div className='row'>
                 <div className='col-6 offset-3'>
-                {errors === true && <p className='text-success'>{errorMsg}</p>}
+                {errors === true && <p className='text-danger'>{errorMsg}</p>}
                     {/* {userData.status === 'error' && <p className='text-success'> Something Went Wrong</p>}
                      */}
                     <div className='card'>
