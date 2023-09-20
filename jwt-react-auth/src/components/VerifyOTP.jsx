@@ -7,7 +7,7 @@ import { useNavigate , useLocation} from 'react-router-dom';
 function Verify() {
     const nav = useNavigate()
     const location = useLocation();
-    const { email } = location.state || {};
+    const { email, secret, valid_date } = location.state || {};
     const [otpData, setOtpData] = useState({
         'otp': '',
     })
@@ -22,7 +22,10 @@ function Verify() {
         e.preventDefault()
         const userFormData = new FormData(); 
         userFormData.append("email", email)
-        userFormData.append("otp", otpData.otp)     
+        userFormData.append("otp", otpData.otp)
+        userFormData.append("secret", secret)
+        userFormData.append("valid_date", valid_date)
+    
 
         try {
             axios.post(`${BASE_URL}user/verify/`, userFormData).then((response) => {

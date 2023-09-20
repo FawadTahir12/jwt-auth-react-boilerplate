@@ -39,7 +39,10 @@ function Register() {
                 )
                 if(response.status === 201 || response.status === 200){
                     const email = response.data.email
-                    nav(`/verify-otp`, { state: { email } })
+                    const secret = response.data.secret
+                    const valid_date = response.data.valid_date
+
+                    nav(`/verify-otp`, { state: { email, secret, valid_date } })
                 }
                 
               
